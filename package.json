@@ -1,0 +1,38 @@
+{
+  "name": "react-supersquad",
+  "version": "1.0.0",
+  "description": "React/Redux Super Squad application following the Udemy tutorial from David Katz",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silvestrevivo/react-supersquad.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "parcel",
+    "udemy"
+  ],
+  "author": "@silvestrevivo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/silvestrevivo/react-supersquad/issues"
+  },
+  "homepage": "https://github.com/silvestrevivo/react-supersquad#readme",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "node-sass": "^4.7.2",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1"
+  }
+}
