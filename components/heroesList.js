@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { addCharacterById } from '../actions';
 
-class CharacterList extends Component {
-    //state = {}
+class HeroesList extends Component {
+    //state = {  }
     render() {
+        console.log(this.props.heroes);
+
         return (
             <div>
-                <h4 className="text-uppercase">Characters</h4>
+                <h4 className="text-uppercase">Heores</h4>
                 <ul className="list-group">
                     {
-                        this.props.characters.map(item => {
+                        this.props.heroes.map(item => {
                             return (
                                 <li key={item.id} className="list-group-item">
                                     <div className="list-item">{item.id}.-{item.name}</div>
-                                    <div onClick={() => this.props.addCharacterById(item.id)} className="list-item right-button"> + </div>
+                                    <div className="list-item right-button"> - </div>
                                 </li>
                             );
                         })
@@ -28,9 +28,8 @@ class CharacterList extends Component {
 
 function mapStateToProps(state) {
     return {
-        characters: state.characters,
         heroes: state.heroes
     };
 }
 
-export default connect(mapStateToProps, { addCharacterById })(CharacterList);
+export default connect(mapStateToProps, null)(HeroesList);
