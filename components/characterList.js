@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { addCharacterById } from '../actions';
 
 class CharacterList extends Component {
@@ -28,8 +27,7 @@ class CharacterList extends Component {
 
 function mapStateToProps(state) {
     return {
-        characters: state.characters,
-        heroes: state.heroes
+        characters: state.characters
     };
 }
 
