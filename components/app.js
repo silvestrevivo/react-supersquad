@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CharacterList from './characterList';
 
 class App extends Component {
     state = {}
@@ -6,6 +7,7 @@ class App extends Component {
         return (
             <div>
                 <h1>From {this.props.program}</h1>
+                <CharacterList />
             </div>
         );
     }
