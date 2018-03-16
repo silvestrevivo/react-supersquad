@@ -3,12 +3,16 @@ import ReactDOM from 'react-dom'
 import App from './components/app'
 import '../assets/sass/style.scss'
 
-import { createStore } from 'redux'
+import { createStore, compose } from 'redux'
 import { Provider } from 'react-redux'
 
 import rootReducer from './reducers'
 
-const store = createStore(rootReducer)
+const enhancers = compose(
+  window.devToolsExtension ? window.devToolsExtension() : (f) => (f)
+)
+
+const store = createStore(rootReducer, enhancers)
 // console.log('store.getState()', store.getState());
 // if you want to acces to the general data => action by default return state
 
