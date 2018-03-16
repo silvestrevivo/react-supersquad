@@ -1,22 +1,18 @@
 import charactersJson from './data/characters.json'
+import { createReducer } from 'redux-helpers'
 import * as CHARACTERS from '../actions'
 
-function characters (state = charactersJson, action) {
-  switch (action.type) {
-    case String(CHARACTERS.characterAdd):
-      let characters = state.filter(item => item.id !== action.id)
-      return characters
-    case String(CHARACTERS.characterRemove):
-      characters = [...state, createCharacter(action.id)]
-      return characters
-    default:
-      return state
-  }
+const initialState = charactersJson
+
+const onAddCharacters = (state, action) => {
+  return state.filter(item => item.id !== action.id)
 }
 
-function createCharacter (id) {
-  let character = charactersJson.find(item => item.id === id)
-  return character
+const onRemoveCharacter = (state, action) => {
+  return [...state, charactersJson.find(item => item.id === action.id)]
 }
 
-export default characters
+export default createReducer('characters', {
+  [CHARACTERS.characterAdd]: onAddCharacters,
+  [CHARACTERS.characterRemove]: onRemoveCharacter
+}, initialState)
