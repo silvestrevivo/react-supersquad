@@ -1,18 +1,14 @@
-export const ADD_CHARACTER = 'ADD_CHARACTER'
-export const REMOVE_CHARACTER = 'REMOVE_CHARACTER'
+import { createActions } from 'redux-helpers'
 
-export function addCharacterById (id) {
-  const action = {
-    type: ADD_CHARACTER,
-    id
-  }
-  return action
-}
+const [
+  characterAdd,
+  characterRemove
+] = createActions('character', {
+  add: (id) => ({ id }),
+  remove: (id) => ({ id })
+})
+// this is the result because a domain is not needed
+// character / add
+// character / remove
 
-export function removeCharacterById (id) {
-  const action = {
-    type: REMOVE_CHARACTER,
-    id
-  }
-  return action
-}
+export { characterAdd, characterRemove }

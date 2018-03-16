@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { removeCharacterById } from '../actions'
+import * as CHARACTER from '../actions'
 
-const HeroesList = ({ heroes, removeCharacterById }) => {
+const HeroesList = ({ heroes, characterRemove }) => {
   return (
     <div>
       <h4 className="text-uppercase">Heores</h4>
@@ -15,7 +15,7 @@ const HeroesList = ({ heroes, removeCharacterById }) => {
                 <div className="list-item">{item.id}.-{item.name}</div>
                 <div
                   className="list-item right-button"
-                  onClick={() => removeCharacterById(item.id)}> - </div>
+                  onClick={() => characterRemove(item.id)}> - </div>
               </li>
             )
           })
@@ -27,7 +27,7 @@ const HeroesList = ({ heroes, removeCharacterById }) => {
 
 HeroesList.propTypes = {
   heroes: PropTypes.array,
-  removeCharacterById: PropTypes.func
+  characterRemove: PropTypes.func
 }
 
 function mapStateToProps (state) {
@@ -36,4 +36,10 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps, { removeCharacterById })(HeroesList)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    characterRemove: (id) => dispatch(CHARACTER.characterRemove(id))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeroesList)
