@@ -19,6 +19,6 @@ function heroes(state = [], action) {
 function createCharacter(id) {
     let character = characters_json.find(item => item.id === id);
     return character;
-}
+} // helper function for reducer
 
 export default heroes;
