@@ -4,7 +4,11 @@
   "description": "React/Redux Super Squad application following the Udemy tutorial from David Katz",
   "main": "index.html",
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html --out-dir build/ --public-url ./",
+    "test": "jest --watchAll",
+    "coverage": "test -- --coverage",
+    "precommit": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -22,19 +26,51 @@
     "url": "https://github.com/silvestrevivo/react-supersquad/issues"
   },
   "homepage": "https://github.com/silvestrevivo/react-supersquad#readme",
+  "devDependencies": {
+    "autoprefixer": "^8.0.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.18.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-config-standard-react": "^5.0.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^6.0.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-react": "^7.6.1",
+    "eslint-plugin-standard": "^3.0.1",
+    "husky": "^0.14.3",
+    "jest": "^22.4.2",
+    "lint-staged": "^6.1.1",
+    "node-sass": "^4.7.2",
+    "postcss-modules": "^1.1.0",
+    "react-test-renderer": "^16.2.0"
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js"
+  },
   "dependencies": {
     "classnames": "^2.2.5",
-    "node-sass": "^4.7.2",
+    "node-class": "^0.3.12",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-redux": "^5.0.6",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
     "redux": "^3.7.2"
-  },
-  "devDependencies": {
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1"
   }
 }
